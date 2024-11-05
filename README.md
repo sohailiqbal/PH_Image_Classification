@@ -8,7 +8,7 @@ Running the Code: Run the main MATLAB script to compute persistent homology feat
 
 Cross-Validation: The code uses 5-fold cross-validation, with each fold dynamically sized to 20% of the dataset, making the code adaptable to any dataset size. 
 
-Note: Transductive approaches (like this one) require more RAM compared to inductive methods since they process both training and test data. 
+Note: Since transductive approaches (like this one) require more RAM compared to inductive methods since they process both training and test data so for quick results we recommend high RAM.
 
 Citation: If you use this code in your research, please cite our paper:
 Your Paper’s Citation Here
