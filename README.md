@@ -8,7 +8,7 @@ Install Ripser for Python:
 pip install ripser
 Install any other dependencies listed in requirements.txt.
 
-Usage: Setting Up Data: Place COVID and Non-COVID images in the Data/Covid and Data/NonCovid folders, respectively.
+Usage for Covid-19 classification: Setting Up Data: Place COVID and Non-COVID images in the Data/Covid and Data/NonCovid folders, respectively.
 Running the Code: Run the main MATLAB script to compute persistent homology features and classify images.
 
 Cross-Validation: The code uses 5-fold cross-validation, with each fold dynamically sized to 20% of the dataset, making the code adaptable to any dataset size. Note: Transductive approaches (like this one) require more RAM compared to inductive methods since they process both training and test data.
