@@ -1,8 +1,9 @@
 function [CCmatrix] = solidities_kmeans(image,NoC,d)
 %SOLIDITIES_KMEANS Summary of this function goes here
 %   Detailed explanation goes here
-       
-imshow(image);
+
+% use the following if you want to visualize the image with the point cloud.
+%imshow(image);
 
 image=rgb2gray(image);
 
@@ -57,12 +58,12 @@ CC{k,1}=V;
 
 
 %-------------------------------------------------------------------
-%to see image and the centroids on it. Also uncomment imshow(image) above
+% VISULIZATION: to see image and the centroids on it. Also, uncomment "imshow(image)" above (line # 6)
 %------------------------------------------------------------------
-hold on
+%hold on
 %plot(cent(:,1), cent(:,2),'linestyle','none','marker','o','MarkerSize',10,'MarkerFaceColor','red')
-plot(cent(:,1), cent(:,2), 'o')
-hold on
+%plot(cent(:,1), cent(:,2), 'o')
+%hold on
 
 
 end
