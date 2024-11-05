@@ -1,6 +1,6 @@
 Requiremnts for python
 ripser         # For computing persistent homology
-numpy         # Essential for array manipulation
+numpy==1.19.5         # Essential for array manipulation
 scipy          # Gaussian filtering, if needed for probability functions
 
 Requirements for matlab
