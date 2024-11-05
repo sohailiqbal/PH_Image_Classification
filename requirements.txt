@@ -1,1 +1,38 @@
+Requiremnts for python
+ripser         # For computing persistent homology
+numpy         # Essential for array manipulation
+scipy          # Gaussian filtering, if needed for probability functions
 
+Requirements for matlab
+MATLAB Requirements for Persistent Homology Image Classification Project
+
+1. MATLAB Toolboxes:
+   - Statistics and Machine Learning Toolbox
+     - Required for functions like fitcsvm, PCA, and other machine learning tasks.
+   - Parallel Computing Toolbox (optional)
+     - Speeds up large computations, especially useful for parallel processing.
+
+2. External MATLAB Libraries:
+   - JavaPlex (optional): MATLAB library for computing persistent homology.
+     - Installation: https://github.com/appliedtopology/javaplex
+     - Usage: Add to path using `load_javaplex` and `import edu.stanford.math.plex4.*`
+
+   - Ripser (Python): Required for persistent homology computations via Python.
+     - Ensure MATLAB is configured with Python. Check Python configuration with:
+       ```matlab
+       pyversion
+       ```
+     - Install `ripser` and `numpy` in the selected Python environment.
+
+3. Additional External MATLAB Files:
+   - libsvm-3.21: Support Vector Machine library for specific configurations.
+     - Installation: https://www.csie.ntu.edu.tw/~cjlin/libsvm/
+   - Sphere Tools: Provides functions for spherical data handling, like `sphere_extrinsic_mean` and `log_map`.
+     - Download link: https://github.com/rushilanirudh/pdsphere/tree/master/matlab
+
+4. Adding Paths:
+   - Ensure `libsvm-3.21` and `Sphere tools` directories are added to the MATLAB path. Use:
+     ```matlab
+     addpath(genpath('libsvm-3.21'));
+     addpath(genpath('Sphere tools'));
+     ```
