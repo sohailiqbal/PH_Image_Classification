@@ -11,15 +11,9 @@ close all;
 % 2. Ripser (a fast C++ library accessed via Python)
 %   (see this for details: https://www.mathworks.com/help/matlab/matlab_external/create-object-from-python-class.html)
 
-% Option 1: Using JavaPlex
-% -------------------------
-% Uncomment the following lines to use JavaPlex for persistent homology.
-% Ensure that JavaPlex is installed and added to your MATLAB path.
 
-% load_javaplex;
-% import edu.stanford.math.plex4.*;
-
-% Option 2: Using Ripser via Python
+% We calculate homology using option 2: Using Ripser via Python
+% For JavaPlex see: https://appliedtopology.github.io/javaplex/
 % ---------------------------------
 % To use Ripser, ensure that Python and the Ripser library are installed.
 % MATLAB must be configured to use the correct Python version.
