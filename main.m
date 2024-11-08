@@ -98,6 +98,7 @@ phi_N = compute_phi_images(dataDir_NonCovid, NkClusters,d, rips, max_dimension, 
 phi_C = compute_phi_images(dataDir_Covid, NkClusters,d, rips, max_dimension, max_filtration_value, x1, x2, Sigma);
 
 %----------------Lower Star Filtration -----------------------------
+% Warning: Lower star filtration can not be computed using JavaPlex. 
 % Define parameters
 a = 0:0.3:256 + 20;
 b = 0:0.3:256 + 20;
