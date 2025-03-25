@@ -25,19 +25,7 @@ This repository provides MATLAB code for classifying COVID-19 from CT-scan image
 - `requirements.txt` - Python dependencies for using Ripser
 - `requirements_matlab.txt` - MATLAB toolbox dependencies
 
-.
-├── main.m                          # Main pipeline (TDA + SVM)
-├── hog_classification.m            # HOG feature extraction + SVM
-├── glcm_classification.m           # GLCM feature extraction + SVM
-├── compute_phi_images.m            # TDA helper for PH feature extraction
-├── compute_lower_star_filtration.m # TDA helper for lower-star filtration
-├── Data/
-│   ├── Covid/                      # COVID CT images (.png)
-│   └── NonCovid/                   # Non-COVID CT images
-├── requirements.txt                # Python dependencies
-├── requirements_matlab.txt         # MATLAB toolbox dependencies
-├── LICENSE
-└── README.md
+<pre> ``` . ├── main.m # Main pipeline (TDA + SVM) ├── hog_classification.m # HOG feature extraction + SVM ├── glcm_classification.m # GLCM feature extraction + SVM ├── compute_phi_images.m # TDA helper for PH feature extraction ├── compute_lower_star_filtration.m# TDA helper for lower-star filtration ├── Data/ │ ├── Covid/ # COVID CT images (.png) │ └── NonCovid/ # Non-COVID CT images ├── requirements.txt # Python dependencies ├── requirements_matlab.txt # MATLAB toolbox dependencies ├── LICENSE └── README.md ``` </pre>
 
 
 ##How to Run
