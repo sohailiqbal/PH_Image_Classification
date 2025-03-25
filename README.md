@@ -1,5 +1,5 @@
-
 Persistent Homology Based Image Classification
+
 This project utilizes Topological Data Analysis (TDA) through Persistent Homology to extract robust, shape-based features from images for effective classification. Persistent Homology is computed using the Ripser library, with the option to switch to Ripser++ for significantly faster performance on large datasets. The framework also supports direct comparisons with traditional computer vision techniques such as Histogram of Oriented Gradients (HOG) and Gray-Level Co-Occurrence Matrix (GLCM), providing a comprehensive evaluation of TDA against standard approaches.
 
 
