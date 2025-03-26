@@ -43,8 +43,7 @@ close all;
 %      Add External Libraries and Toolboxes
 % --------------------------------------------
 %download from the link :
-%https://github.com/rushilanirudh/pdsphere/tree/master/matlab
-addpath(genpath('libsvm-3.21'));     
+%https://github.com/rushilanirudh/pdsphere/tree/master/matlab  
 addpath(genpath('Sphere tools'));    
 
 
