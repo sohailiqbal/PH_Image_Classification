@@ -1,7 +1,20 @@
 clc;
 clear;
 close all;
-
+% --------------------------------------------------------
+% main.m
+%
+% This script runs the full pipeline for Persistent Homology-based
+% classification of CT images into COVID and Non-COVID classes.
+%
+% HOW TO USE:
+% 1. Ensure data is present in Data/Covid and Data/NonCovid folders.
+% 2. Make sure required toolboxes and Python libraries are installed.
+% 3. Simply run this script in MATLAB:
+%
+%       >> main
+%
+% --------------------------------------------------------
 % --------------------------------------------
 %      Persistent Homology Libraries Setup
 % --------------------------------------------
@@ -11,9 +24,15 @@ close all;
 % 2. Ripser (a fast C++ library accessed via Python)
 %   (see this for details: https://www.mathworks.com/help/matlab/matlab_external/create-object-from-python-class.html)
 
+% Option 1: Using JavaPlex
+% -------------------------
+% Uncomment the following lines to use JavaPlex for persistent homology.
+% Ensure that JavaPlex is installed and added to your MATLAB path.
 
-% We calculate homology using option 2: Using Ripser via Python
-% For JavaPlex see: https://appliedtopology.github.io/javaplex/
+% load_javaplex;
+% import edu.stanford.math.plex4.*;
+
+% Option 2: Using Ripser via Python
 % ---------------------------------
 % To use Ripser, ensure that Python and the Ripser library are installed.
 % MATLAB must be configured to use the correct Python version.
@@ -33,8 +52,8 @@ addpath(genpath('Sphere tools'));
 %   Number of Initial Dimensions for PGA
 % --------------------------------------------
 
-k = 2400;                            % Number of dimensions for PGA (Principal Geodesic Analysis)
-
+k = 4;                            % Number of dimensions for PGA (Principal Geodesic Analysis)
+k2=4;                              % Number of dimensions for PCA in the second stage
 
 % --------------------------------------------
 %              Ripser Parameter Values
@@ -44,7 +63,13 @@ max_dimension = 2;                   % Max homology dimension to compute
 max_filtration_value = 500;          % Max filtration value for persistence
 Finite_Field = 7;                    % Finite field for coefficient calculations
 % Create a Ripser object with specified parameters
-rips = py.ripser.Rips('maxdim', max_dimension, 'thresh', max_filtration_value, 'coeff', Finite_Field);
+
+rips = py.ripser.Rips(pyargs( ...
+    'maxdim', int32(max_dimension), ...
+    'thresh', double(max_filtration_value), ...
+    'coeff', int32(Finite_Field) ...
+));
+
 
 % Note: To switch between JavaPlex and Ripser, comment or uncomment the relevant sections.
 % Adjust subsequent code to use the functions and data formats of the chosen library.
@@ -92,7 +117,6 @@ phi_N = compute_phi_images(dataDir_NonCovid, NkClusters,d, rips, max_dimension, 
 phi_C = compute_phi_images(dataDir_Covid, NkClusters,d, rips, max_dimension, max_filtration_value, x1, x2, Sigma);
 
 %----------------Lower Star Filtration -----------------------------
-% Warning: Lower star filtration can not be computed using JavaPlex. 
 % Define parameters
 a = 0:0.3:256 + 20;
 b = 0:0.3:256 + 20;
@@ -133,14 +157,14 @@ end
 
 % Perform PCA on PGAPatches and reduce dimensions
 [~, w, ~] = pca(PGAPatches');
-PGAPatchesT = w(:, 1:4800)';  % Transpose after slicing to get reduced dimensions
+PGAPatchesT = w(:, 1:k2)';  % Transpose after slicing to get reduced dimensions
 
 % Parameters for dataset and model
 [NoP, par] = size(PGAPatchesT);
 mNoP = min(sum(label == 1), sum(label == 2));
 NoPtest = 2 * ceil(0.2 * mNoP);  % Calculate test size dynamically based on data size
 NoPtrain = NoP - NoPtest;
-d = 4800;
+
 
 % Randomly permute the data indices for cross-validation
 rand_perm_T = randperm(NoP);
