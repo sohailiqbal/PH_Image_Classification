@@ -57,8 +57,7 @@ Note: Since transductive approaches (like this one) require more RAM compared to
 > [🔗 View on arXiv](https://arxiv.org/abs/2102.10593)
 
 
-Citation Requirement: If you use this code in your research, please cite the following publication:
-Iqbal S, Ahmed HF, Qaiser T, Qureshi MI, Rajpoot N. Classification of COVID-19 via Homology of CT-SCAN. arXiv preprint arXiv:2102.10593. 2021 Feb 21.
+
 
 License: This project is licensed under the MIT License. Please refer to the LICENSE file for details.
 
