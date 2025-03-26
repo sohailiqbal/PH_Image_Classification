@@ -29,7 +29,8 @@ function phi = compute_phi_images(imagePath, NkClusters,d, rips, max_dimension, 
         
         % Perform k-means clustering to get the point cloud
         CCmatrix = solidities_kmeans(inputImg, NkClusters,d); 
-        point_cloud = py.numpy.array(CCmatrix);
+        
+       point_cloud = py.numpy.array(single(CCmatrix));
         
         % Compute persistent diagrams using Ripser
         diagrams = rips.fit_transform(point_cloud);
@@ -57,7 +58,7 @@ function phi = compute_phi_images(imagePath, NkClusters,d, rips, max_dimension, 
                 F = reshape(F, length(x2), length(x1));
                 HeatMap = HeatMap + F;
             end
-            
+            surf(HeatMap)   
             % Normalize and compute the phi value
             ht = HeatMap / (sum(HeatMap(:)) + 1e-10);
             if ~sum(ht(:))
