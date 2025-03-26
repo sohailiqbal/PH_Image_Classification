@@ -49,6 +49,14 @@ Cross-Validation: The code uses 5-fold cross-validation, with each fold dynamica
 Note: Since transductive approaches (like this one) require more RAM compared to inductive methods since they process both training and test data so for quick results we recommend high RAM.
 
 
+> 📌 **Citation Requirement:**  
+> If you use this code in your research, please cite the following publication:  
+> **Iqbal S, Ahmed HF, Qaiser T, Qureshi MI, Rajpoot N.**  
+> *Classification of COVID-19 via Homology of CT-SCAN.*  
+> *arXiv preprint arXiv:2102.10593, 2021 Feb 21.*  
+> [🔗 View on arXiv](https://arxiv.org/abs/2102.10593)
+
+
 Citation Requirement: If you use this code in your research, please cite the following publication:
 Iqbal S, Ahmed HF, Qaiser T, Qureshi MI, Rajpoot N. Classification of COVID-19 via Homology of CT-SCAN. arXiv preprint arXiv:2102.10593. 2021 Feb 21.
 
